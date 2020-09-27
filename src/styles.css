@@ -1,1 +1,350 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --amazonOrange: #FF9900;
+  --lightAmazonOrange: #FFAC31;
+  --darkAmazonOrange: #E88B01;
+  --squidInk: #232F3E;
+  --lightSquidInk: #31465F;
+  --deepSquidInk: #152939;
+  --grey: #828282;
+  --lightGrey: #C4C4C4;
+  --silver: #E1E4EA;
+  --darkBlue: #31465F;
+  --red: #DD3F5B;
+  --white: #FFFFFF;
+  --light-blue: #00a1c9;
+  --button-color: var(--white);
+  --button-background-color: var(--amazonOrange);
+  --button-click: var(--darkAmazonOrange);
+  --link-color: var(--amazonOrange);
+  --form-color: var(--white);
+  --input-color: var(--deepSquidInk);
+  --input-background-color: var(--white);
+  --font-family: "Amazon Ember","Helvetica Neue Light","Helvetica Neue","Helvetica" ,"Arial","sans-serif";
+  --body-background: #F8F4F4;
+  --component-width-desktop: 460px;
+  --component-width-mobile: 100%;
+  --color-primary: #FF9900;
+  --color-primary-accent: #232F3E;
+  --color-primary-highlight: #FFC46D;
+  --color-background: #232F3E;
+  --color-secondary: #152939;
+  --color-secondary-accent: #31465F;
+  --color-danger: #DD3F5B;
+  --color-error: #D0021B;
+  --color-accent-brown: #828282;
+  --color-accent-blue: #E1E4EA;
+  --gradient-blaze: linear-gradient(270deg, #FFC300 0%, #FF9000 100%);
+  --color-blue: #007EB9;
+  --color-purple: #527FFF;
+  --color-gray: #828282;
+  --color-white: #FFFFFF;
+  --input-border: 1px solid #C4C4C4;
+  --input-padding: 0.5em 0.5em 0.3em 1em;
+  --box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.15);
+  --button-height: 42px;
+  --interactions-conversation-height: 250px;
+  --ion-color-primary: #FF9900;
+  --ion-color-primary-rgb: 255,153,0;
+  --ion-color-primary-contrast: #fff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #232F3E;
+  --ion-color-primary-tint: #FFC46D;
+}
+
+html,
+body {
+  font-family: "Amazon Ember", "Helvetica", "sans-serif";
+  margin: 0;
+}
+a {
+  color: #ff9900;
+}
+h1 {
+  font-weight: 300;
+}
+.app {
+  width: 100%;
+}
+.app-header {
+  color: white;
+  text-align: center;
+  background: linear-gradient(30deg, #f90 55%, #ffc300);
+  width: 100%;
+  margin: 0 0 1em 0;
+  padding: 3em 0 3em 0;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.app-logo {
+  width: 126px;
+  margin: 0 auto;
+}
+.app-body {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap; 
+}
+.form-body button {
+  background-color: #ff9900;
+  font-size: 14px;
+  color: white;
+  text-transform: uppercase;
+  padding: 1em;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+.app-body button:hover {
+  opacity: 0.8;
+}
+
+input {
+  padding: 6px;
+  font-size: 14px;
+  color: var(--input-color);
+  background-color: var(--input-background-color);
+  background-image: none;
+  border: 1px solid var(--lightGrey);
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.25);
+  width: 180px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  /* height: 100%; */
+  transition: transform .2s ease, box-shadow .2s ease;
+  backface-visibility: hidden;
+  margin: 25px;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 14px 0 rgba(0,0,0,0.15);
+}
+
+.name {
+  font-style: italic;
+}
+.symbol {
+  color: #999;
+}
+.price {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 25px; 
+}
+
+/* style fix */
+.amplify-select-phone-country {
+height: 43px;
+width: 75px;
+}
+
+.chatty-container, .input {
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 190;
+  background: rgb(233, 229, 229);
+  border-radius: 5px;
+}
+.chatty {
+  background: none;
+  margin: 0;
+  xpadding: 0 0 50px 0;
+  max-height: 200px;
+  min-height: 200px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+.me {
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+  display: flex;
+}
+.message-container{
+  min-width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.07);
+  margin: 10px 15px 2px 15px;
+}
+.me .message-container {
+  border-bottom-left-radius: 0px;
+  background-color:white;
+}
+.others .message-container {
+  border-bottom-right-radius: 0px;
+  background-color: #dcf8c6;
+}
+
+.message-time {
+  font-size: 0.8rem;
+  margin: 0 0 0.2rem 0;
+  color: #e91e63;
+  text-align: left;
+}
+.message-user {
+  font-size: 0.8rem;
+  margin: 0 0 0.2rem 0;
+  color: #e91e63;
+  text-align: left;
+}
+.others {
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+  display: flex;
+}
+.message-text {
+  text-align: left;
+}
+.message-time {
+  font-size: 0.6rem;
+  color: gray;
+  margin-left: 15px;
+}
+.message-input {
+  height: 50px; 
+  margin: 5px; 
+  width: inherit;
+  padding-left: 15px;
+  display: block;
+}
+
+.form-body form {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  min-width: 12px;
+  width: 12px;
+  max-width: 12px;
+  min-height: 12px;
+  height: 12px;
+  max-height: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background: #9e9e9e;
+  border: none;
+  border-radius: 100px;
+  border: solid 3px #e5e5e5;
+  box-shadow: inset 0px 0px 3px #999;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
+  box-shadow: inset 0px 0px 3px #888;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #aaa;
+  box-shadow: inset 0px 0px 3px #7f7f7f;
+}
+::-webkit-scrollbar-button {
+  display: block;
+  height: 26px;
+}
+::-webkit-scrollbar-corner {
+  background-color: #eae5e5;
+}
+
+.app-body button {
+  min-width: 153px;
+}
+
+
+/* remove blue highlight */
+textarea:hover, 
+input:hover:not([type="checkbox"]), 
+textarea:active, 
+input:active:not([type="checkbox"]), 
+textarea:focus, 
+input:focus:not([type="checkbox"]),
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active,
+select
+{
+  outline:0px !important;
+  -webkit-appearance:none;
+  box-shadow: none !important;
+}
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.welcome h1 {
+  margin-right: 40px;
+}
+
+@media screen and (max-width: 640px) {
+  .app-body {
+    width: 95%;
+  }
+  .welcome {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .welcome h1 {
+    margin-right: unset;
+  }
+  .app-body button {
+    min-width: unset;
+  }
+  .app-header h1 {
+    display: none;
+  }
+  .app-header {
+    margin: unset;
+    padding: 20px 0px 20px 0px;
+  }
+  .app-header img {
+    width: 100px;
+  }
+}

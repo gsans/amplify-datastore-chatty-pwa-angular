@@ -19,6 +19,11 @@
     "@angular/platform-browser": "~10.1.3",
     "@angular/platform-browser-dynamic": "~10.1.3",
     "@angular/router": "~10.1.3",
+    "@aws-amplify/core": "3.5.5",
+    "@aws-amplify/datastore": "2.5.2",
+    "@aws-amplify/ui-angular": "0.4.5",
+    "aws-amplify": "3.3.2",
+    "moment": "2.29.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
