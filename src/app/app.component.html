@@ -7,7 +7,7 @@
 <div class="app-body">
   <amplify-authenticator>
     <div class="welcome">
-      <h1>Hey, {{user.username}}!</h1>
+      <h1 *ngIf="user">Hey, {{user.username}}!</h1>
       <amplify-sign-out></amplify-sign-out>
     </div>
   </amplify-authenticator>
@@ -15,14 +15,17 @@
     <div>
       <div class="form-body">
         <form autocomplete="off" [formGroup]="createForm" (ngSubmit)="onCreate(createForm.value)">
-          <div class="input"><input class="message-input" type="text" formControlName="message" autocomplete="off" placeholder="Enter your message..."></div>
+          <div class="input" [ngClass]="{'offline': offline}">
+            <input class="message-input" type="text" formControlName="message" autocomplete="off" placeholder="Enter your message...">
+          </div>
           <button type="submit">Send</button>
           <button type="button" (click)="onDeleteAll()">Delete All</button>
         </form>
       </div>
     </div>
     <span *ngIf="loading">Loading...</span>
-    <div class="chatty-container">
+    <div class="chatty-container" [ngClass]="{'offline': offline}">
+      <div class="offline-msg" *ngIf="offline">You are offline. Your messages will be shared once you are connected.</div>
       <div class="chatty">
         <div *ngFor="let message of messages">
           <div [ngClass]="(this.user.username === message.user)? 'me' : 'others'">

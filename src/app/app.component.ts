@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataStore, Predicates } from "@aws-amplify/datastore";
 import { Chatty } from "../models";
 import * as moment from "moment";
+import { Hub } from 'aws-amplify';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,8 @@ export class AppComponent implements OnInit {
   loading = true;
   public createForm: FormGroup;
   unregister;
+  listener = undefined;
+  offline = undefined;
 
   constructor(private ref: ChangeDetectorRef, private fb: FormBuilder) { 
     Auth.currentAuthenticatedUser().then(user => {
@@ -43,6 +46,16 @@ export class AppComponent implements OnInit {
         this.user = user;
         this.ref.detectChanges();
       }
+    });
+
+    //listen to datastore
+    console.log('Registering datastore hub');
+    this.listener = Hub.listen('datastore', message => {
+      const { event, data } = message.payload;
+      console.log("DataStore event", event, data);
+      if (event === 'networkStatus') {
+        this.offline = !data.active;
+      }
     })
 
     this.createForm = this.fb.group({
@@ -61,6 +74,7 @@ export class AppComponent implements OnInit {
 
   ngOnDestroy() {
     this.unregister();
+    this.listener();
     if (!this.subscription) return;
     this.subscription.unsubscribe();
   }
